@@ -1,16 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-app-deployment
+  name: testapp-deployment
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: testapp
   template:
     metadata:
       labels:
-        app: test-app
+        app: testapp
     spec:
       containers:
-      - name: test-app
+      - name: testapp
         image: vncntduong/javatestapp:latest
         ports:
         - containerPort: 80
