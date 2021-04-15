@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2beta13
+kind: Config
+metadata:
+  name: springboot-app-demo
+build:
+  artifacts:
+  - image: vncntduong/javatestapp
+    context: .
+    jib: {}
+deploy:
+  kubectl:
+    manifests:
+    - yaml/deployment.yaml
+    - yaml/services.yaml
