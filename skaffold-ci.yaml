@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2beta13
+kind: Config
+metadata:
+  name: springboot-app-demo
+build:
+  artifacts:
+  - image: us-central1-docker.pkg.dev/phrasal-client-306123/artifact-reg-image/javatestapp
+    context: .
+    jib: {}
+deploy:
+  kubectl:
+    manifests:
+    - yaml/deployment.yaml
+    - yaml/services.yaml
